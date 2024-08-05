@@ -1,0 +1,104 @@
+{% extends 'admin/base.html' %}
+
+{% block main %}
+
+<style>
+      body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        
+        .job-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+        
+        .label {
+            font-weight: bold;
+            padding: 5px 0;
+        }
+        
+        .value {
+            padding: 5px 0;
+        }
+        
+        .applications {
+            width: 100%;
+        }
+        
+        .application {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+</style>
+
+<div class="container">
+      <div class="job-details">
+          <div class="label">Job Title:</div>
+          <div class="value">{{job.title}}</div>
+
+          <div class="label">Skills:</div>
+          <div class="value">{{job.skills}}</div>
+
+          <div class="label">Location:</div>
+          <div class="value">{{job.location}}</div>
+
+          <div class="label">Category:</div>
+          <div class="value">{{job.category}}</div>
+
+          <div class="label">Job Type:</div>
+          <div class="value">{{job.job_type}}</div>
+
+          <div class="label">Gender:</div>
+          <div class="value">{{job.gender}}</div>
+
+          <div class="label">Minimum Age:</div>
+          <div class="value">{{job.min_age}}</div>
+
+          <div class="label">Maximum Age:</div>
+          <div class="value">{{job.max_age}}</div>
+
+          <div class="label">Qualification:</div>
+          <div class="value">{{job.qualification}}</div>
+
+          <div class="label">Experience:</div>
+          <div class="value">{{job.experience}}</div>
+
+          <div class="label">Minimum Salary:</div>
+          <div class="value">{{job.min_salary}}</div>
+
+          <div class="label">Vacancy:</div>
+          <div class="value">{{job.vacancy}}</div>
+
+          <div class="label">Updated At:</div>
+          <div class="value">{{job.updated_at}}</div>
+      </div>
+
+      <div class="applications">
+          <h3>Applications</h3>
+          {% for application in applications %}
+              <div class="application">
+                  <div class="label">Username:</div>
+                  <div class="value"><a href="{% url 'application-profile-admin' application.user.id %}">{{application.user.username}}</a></div>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+{% endblock %}

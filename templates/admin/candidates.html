@@ -1,0 +1,31 @@
+{% extends 'admin/base.html' %}
+
+{% block main %}
+<p>Candidates</p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">ADDRESS</th>
+            <th scope="col">PHONE</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">QUALIFICATION</th>
+            <th scope="col">PROFILE</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for profile in profiles %}
+        <tr>
+            <th scope="row">{{profile.id}}</th>
+            <td>{{profile.first_name}} {{profile.last_name}}</td>
+            <td>{{profile.address}}</td>
+            <td>{{profile.phone1}}</td>
+            <td>{{profile.user.username}}</td>
+            <td>{{profile.qualification}}</td>
+            <td><a href="{% url 'application-profile-admin' profile.user.id %}">PROFILE</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

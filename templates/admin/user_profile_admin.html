@@ -1,0 +1,89 @@
+{% extends 'admin/base.html' %}
+
+{% block main %}
+
+<style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+        }
+        .admin-container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .admin-header {
+            text-align: center;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .admin-header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #495057;
+        }
+        .admin-header p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+        .admin-section {
+            margin-bottom: 20px;
+        }
+        .admin-section h2 {
+            font-size: 22px;
+            color: #495057;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .admin-section p {
+            margin: 5px 0;
+            color: #343a40;
+        }
+        .resume-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .resume-link a {
+            display: inline-block;
+            }
+
+</style>
+
+
+<div class="admin-container">
+      <div class="admin-header">
+          <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
+          <p>{{ profile.address }}</p>
+          <p>{{ profile.phone1 }} | {{ profile.phone2 }}</p>
+          <p>Age: {{ profile.age }}</p>
+          <p>Employed: {{ profile.employed }}</p>
+      </div>
+      <div class="admin-section">
+          <h2>Skills</h2>
+          <p>{{ profile.skills }}</p>
+      </div>
+      <div class="admin-section">
+          <h2>Qualification</h2>
+          <p>{{ profile.qualification }}</p>
+      </div>
+      <div class="admin-section">
+          <h2>Certifications</h2>
+          <p>{{ profile.certifications }}</p>
+      </div>
+      <div class="admin-section">
+          <h2>About</h2>
+          <p>{{ profile.about }}</p>
+      </div>
+      <div class="resume-link">
+          <strong>Resume: </strong><a href="{% url 'download_resume_admin' %}">Download Resume</a>
+      </div>
+  </div>
+{% endblock %}

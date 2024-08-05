@@ -1,0 +1,148 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+      <div class="register-form-container">
+            <form method="post" enctype="multipart/form-data" action="{% url 'update-profile' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="first_name">First Name:</label>
+                            <input value={{profile.first_name}} type="text" id="first_name" name="first_name" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="last_name">Last Name:</label>
+                            <input value={{profile.last_name}} type="text" id="last_name" name="last_name" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input value={{profile.address}} type="text" id="address" name="address" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="phone1">Phone 1:</label>
+                            <input value={{profile.phone1}} type="text" id="phone1" name="phone1" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="phone2">Phone 2:</label>
+                            <input value={{profile.phone2}} type="text" id="phone2" name="phone2" class="form-control" required>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input value={{profile.age}} type="text" id="age" name="age" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Employed or not:</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="employed_yes" name="employment" value="yes" required>
+                                <label class="form-check-label" for="employed_yes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="employed_no" name="employment" value="no" required>
+                                <label class="form-check-label" for="employed_no">No</label>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="skills">Skills:</label>
+                            <input value={{profile.skills}} type="text" id="skills" name="skills" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="qualification">Qualification:</label>
+                            <input value={{profile.qualification}} type="text" id="qualification" name="qualification" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="certifications">Certifications:</label>
+                            <input value={{profile.certifications}} type="text" id="certifications" name="certifications" class="form-control" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="resume">Resume:</label>
+                            <input type="file" id="resume" name="resume" class="form-control-file">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="about">Brief about yourself:</label>
+                            <textarea id='about' value={{profile.about}} id="about" name="about" class="form-control" rows="5" required></textarea>
+                        </div>
+                    </div>
+                </div>
+        
+                <button type="submit" class="save-btn btn-primary">SAVE</button>
+            </form>
+        </div>
+        
+
+<style>
+      .register-form-container {
+            max-width: 1000px; /* Increased max-width */
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        textarea,
+        .save-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .save-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .save-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        @media (min-width: 992px) {
+            .col-lg-6 {
+                float: left;
+                width: 50%; /* Each column takes up 50% of the width on larger screens */
+                box-sizing: border-box;
+                padding: 0 15px;
+            }
+        }
+        
+</style>
+<script>
+      var employed = "{{profile.employed}}";
+      if(employed){
+            var check_box = document.getElementById("employed_yes");
+      }else{
+            var check_box = document.getElementById("employed_false");
+      }
+      check_box.checked = true;
+
+      document.getElementById("about").innerHTML = "{{profile.about}}";
+</script>
+{% endblock %}

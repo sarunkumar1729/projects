@@ -1,0 +1,117 @@
+{% extends 'admin/base.html' %}
+
+{% block main %}
+      {% if job_created %}
+      {% endif %}
+      <p>Add new job here</p>
+      <form class="w-50 mx-auto" method='post' action="{% url 'save-updated' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for='job-title' class="form-label">Job title</label>
+              <input id='job-title' type="text" name='title' class="form-control" value={{job.title}} required>
+            </div>
+            <div class="mb-3">
+              <label for="job-location" class="form-label">Job location</label>
+              <input type="text" name='location' class="form-control" id="job-location" value={{job.location}} required>
+            </div>
+            <div class="mb-3">
+                  <label for="qualification" class="form-label">Qualification</label>
+                  <input type="text" class="form-control" name="qualification" id="qualification" value={{job.qualification}} required>
+            </div>
+            <div class="mb-3">
+                  <label for="skills" class="form-label">Skills</label>
+                  <input type="text" class="form-control" name="skills" id="skills" value={{job.skills}} required>
+            </div>
+            <div class="mb-3">
+                  <label for="qualification" class="form-label">Category</label>
+                  <select id="job-category" class="form-control" name="job-category" required>
+                        <option value="software-development">Software Development</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="design">Design</option>
+                        <option value="sales">Sales</option>
+                        <option value="human-resources">Human Resources</option>
+                        <option value="finance">Finance</option>
+                        <option value="education">Education</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="customer-service">Customer Service</option>
+                        <option value="administration">Administration</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="construction">Construction</option>
+                        <option value="retail">Retail</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="legal">Legal</option>
+                        <option value="media">Media</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="government">Government</option>
+                        <option value="non-profit">Non-Profit</option>
+                        <option value="other">Other</option>
+                    </select>            
+            </div>
+            <div class="mb-3">
+                  <label for="job-type" class="form-label">Type</label>
+                  <select class="form-control" name="job-type" id="job-type" required>
+                        <option value="full-time">Full time</option>
+                        <option value="part-time">Part time</option>
+                        <option value="freelance">Freelance</option>
+                        <option value="contract">Contract</option>
+                  </select>
+            </div>
+            <div class="mb-3">
+                  <label for="min-age" class="form-label">Minimum age</label>
+                  <input type="text" class="form-control" name="min_age" id="min-age" value={{job.min_age}} required>
+            </div>
+            <div class="mb-3">
+                  <label for="max-age" class="form-label">Maximum age</label>
+                  <input type="text" class="form-control" name="max_age" id="max-age" value={{job.max_age}} required>
+            </div>
+            <div class="mb-3">
+                  <label class="form-label">Gender</label>
+                  <label for="male" class="form-label">Male</label>
+                  <input type="radio" value='male' name="gender" id="male" required>
+                  <label for="female" class="form-label">Female</label>
+                  <input type="radio" value='female' name="gender" id="female" required>
+                  <label for="not-specified" class="form-label">Not specified</label>
+                  <input type="radio" value='not specified' name="gender" id="not-specified" required>
+            </div>
+            <div class="mb-3">
+                  <label for="experience" class="form-label">Experience ( in years )</label>
+                  <input type="number" name='experience' class="form-control" id="experience" value={{job.experience}} required>
+            </div>
+            <div class="mb-3">
+                  <label for="min-salary" class="form-label">Minimum Salary</label>
+                  <input type="number" name='min_salary' class="form-control" id="min-salary" value={{job.min_salary}} required>
+            </div>
+            <div class="mb-3">
+                  <label for="max-salary" class="form-label">Maximum Salary</label>
+                  <input type="number" name="max_salary" class="form-control" id="max-salary" value={{job.max_salary}} required>
+            </div>
+            <div class="mb-3">
+                  <label for="vacancies" class="form-label">Vacancies</label>
+                  <input type="number" name="vacancies" class="form-control" id="vacancies" value={{job.vacancy}} required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <script>
+            // selecting category
+            var category = "{{ job.category }}";
+            var category_dropdown = document.getElementById('job-category');
+            category_dropdown.value = category;
+            // selecting jpb type
+            var job_type = "{{ job.job_type }}";
+            var job_type_dropdown = document.getElementById("job-type");
+            job_type_dropdown.value = job_type;
+            // selecting gender
+            var gender = "{{ job.gender }}";
+            if(gender == 'male'){
+                  var radio_btn = document.getElementById("male");
+            }else if(gender == 'female'){
+                  var radio_btn = document.getElementById("female");
+            }else{
+                  var radio_btn = document.getElementById("not-specified");
+            }
+            radio_btn.checked = true;
+      </script>
+{% endblock %}

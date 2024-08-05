@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 900px; /* Adjust max-width as needed */
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.register-form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 400px; /* Adjust flex basis as needed */
+}
+
+.image-container {
+    flex: 1 1 300px; /* Adjust flex basis as needed */
+    text-align: center; /* Center the image */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #ff0000; /* Red text */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #ff0000; /* Red button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Full width button */
+    box-sizing: border-box;
+    font-size: 16px; /* Increased font size */
+}
+
+button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+.error {
+    color: #ff0000; /* Red error text */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .register-form-container,
+    .image-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .image-container {
+        margin-top: 20px;
+    }
+}

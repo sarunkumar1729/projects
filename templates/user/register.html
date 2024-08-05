@@ -1,0 +1,117 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+     <div class="register-form-container">
+        <form id="registerForm" method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <h2>Register</h2>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="id_username" name="email" required>
+                <span id="username-error" class="error" style="display: none;"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password1" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="password2" required>
+                <span id="password-error" class="error" style="display: none;"></span>
+            </div>
+            <button type="submit" id="submit-btn">Register</button>
+        </form>
+    </div> 
+
+
+    
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'js/register_form_validation.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+        // Username availability check
+        $('#id_username').on('input', function() {
+            var username = $(this).val();
+            if (username.trim() === "") {
+                $('#username-error').text('').hide();
+                $('#submit-btn').prop('disabled', false);
+                return;
+            }
+
+            $.ajax({
+                url: '{% url "check_username" %}',
+                data: {
+                    'username': username
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.exists) {
+                        $('#username-error').text('Username already exists').show();
+                        $('#submit-btn').prop('disabled', true);
+                    } else {
+                        $('#username-error').hide();
+                        $('#submit-btn').prop('disabled', false);
+                    }
+                },
+                error: function() {
+                    $('#username-error').text('Error checking username').show();
+                    $('#submit-btn').prop('disabled', true);
+                }
+            });
+        });
+
+        // Form submission validation
+        $("#registerForm").submit(function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+
+            // Clear previous error messages
+            $(".error").remove();
+
+            // Get form values
+            var email = $("#id_username").val();
+            var password = $("#password").val();
+            var confirmPassword = $("#confirmPassword").val();
+            var isValid = true;
+
+            // Email validation
+            if (!validateEmail(email)) {
+                $("#id_username").after('<span class="error">Enter a valid email</span>');
+                isValid = false;
+            }
+
+            // Password validation
+            if (!validatePassword(password)) {
+                $("#password").after('<span class="error">Password must contain at least one lowercase letter, one uppercase letter, and one number</span>');
+                isValid = false;
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                $("#confirmPassword").after('<span class="error">Passwords do not match</span>');
+                isValid = false;
+            }
+
+            if (isValid) {
+                this.submit();
+            }
+        });
+
+        function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePassword(password) {
+            var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+            return re.test(password);
+        }
+    });
+</script>
+
+{% endblock %}

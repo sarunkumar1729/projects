@@ -1,0 +1,110 @@
+{% extends 'user/base.html' %}
+
+{% block main %}
+
+
+{% comment %} styles  {% endcomment %}
+<style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .profile-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .profile-header {
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight:bold;
+        }
+        
+        .profile-header h1 {
+            margin: 0;
+        }
+        
+        .profile-content {
+            padding: 20px;
+        }
+        
+        .profile-section {
+            margin-bottom: 20px;
+        }
+        
+        .profile-section h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .profile-section p {
+            margin: 5px 0;
+        }
+        
+        .profile-section p strong {
+            color: #333;
+        }
+        
+        .profile-section a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        
+        .profile-section a:hover {
+            text-decoration: underline;
+        }
+        
+</style>
+
+
+
+    <div class="profile-container">
+      <a href="{% url 'update-profile' %}" class="btn">edit profile</a>
+
+        <div class="profile-header">
+            <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
+        </div>
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>Contact Information</h2>
+                <p><strong>Address:</strong> {{ profile.address }}</p>
+                <p><strong>Phone 1:</strong> {{ profile.phone1 }}</p>
+                <p><strong>Phone 2:</strong> {{ profile.phone2 }}</p>
+            </div>
+            <div class="profile-section">
+                <h2>Personal Information</h2>
+                <p><strong>Age:</strong> {{ profile.age }}</p>
+                <p><strong>Employed:</strong>{% if profile.employed %} Yes {% else %} No {% endif %}</p>
+            </div>
+            <div class="profile-section">
+                <h2>Professional Information</h2>
+                <p><strong>Skills:</strong> {{ profile.skills }}</p>
+                <p><strong>Qualification:</strong> {{ profile.qualification }}</p>
+                <p><strong>Certifications:</strong> {{ profile.certifications }}</p>
+            </div>
+            <div class="profile-section">
+                <h2>Resume</h2>
+                <p><strong>Resume:</strong><a href="{% url 'download_resume' profile.user.id %}">Download Resume</a></p>
+            </div>
+            <div class="profile-section">
+                <h2>About</h2>
+                <p>{{ profile.about }}</p>
+            </div>
+            <div class="profile-section">
+                <h2>Applied jobs : </h2>
+                {% for job in jobs %}
+                    <p>{{ job.job.title }} - {{ job.job.location }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

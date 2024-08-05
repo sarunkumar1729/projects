@@ -1,0 +1,118 @@
+{% extends 'admin/base.html' %}
+
+{% block main %}
+<span>Job listings</span>
+<br>
+{% if deleted %}
+<span style="color:red;">You have successfully deleted the job with job id {{job_id}}: and title : {{title}}</span>
+{% endif %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TITLE</th>
+            {% comment %} <th scope="col">CATEGORY</th> {% endcomment %}
+            {% comment %} <th scope="col">SKILLS</th> {% endcomment %}
+            <th scope="col">TYPE</th>
+            <th scope="col">LOCATION</th>
+            {% comment %} <th scope="col">QUALIFICATION</th> {% endcomment %}
+            {% comment %} <th scope="col">MIN-AGE</th> {% endcomment %}
+            {% comment %} <th scope="col">MAX-AGE</th> {% endcomment %}
+            {% comment %} <th scope="col">GENDER</th> {% endcomment %}
+            {% comment %} <th scope="col">EXPERIENCE</th> {% endcomment %}
+            <th scope="col">MIN-SALARY</th>
+            <th scope="col">MAX-SALARY</th>
+            <th scope="col">VACANCIES</th>
+            <th scope="col">UPDATED</th>
+            <th scope="col">APPLICATIONS</th>
+            <th scope='col' colspan='2'></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for job in jobs %}
+        <tr>
+            <th scope="row">{{job.id}}</th>
+            <td>{{job.title}}</td>
+            {% comment %} <td>{{job.category}}</td> {% endcomment %}
+            {% comment %} <td>{{job.skills}}</td> {% endcomment %}
+            <td>{{job.job_type}}</td>
+            <td>{{job.location}}</td>
+            {% comment %} <td>{{job.qualification}}</td> {% endcomment %}
+            {% comment %} <td>{{job.min_age}}</td> {% endcomment %}
+            {% comment %} <td>{{job.max_age}}</td> {% endcomment %}
+            {% comment %} <td>{{job.gender}}</td> {% endcomment %}
+            {% comment %} <td>{{job.experience}}</td> {% endcomment %}
+            <td>{{job.min_salary}}</td>
+            <td>{{job.max_salary}}</td>
+            <td>{{job.vacancy}}</td>
+            <td>{{job.updated_at}}</td>
+            <td><a href="{% url 'job-details-admin' job.id %}">DETAILS</a></td>
+            <td><a href="{% url 'edit_job' job.id %}">EDIT</a></td>
+            <td><a href="{% url 'delete-job' job.id %}" class="delete-button">DELETE</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<script>
+        {% comment %} document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.delete-button');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    if (!confirm('Are you sure you want to delete this item?')) {
+                        event.preventDefault();
+                    }
+                });
+            });
+        }); {% endcomment %}
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.delete-button');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent default link behavior
+        
+                    const deleteUrl = event.currentTarget.getAttribute('href'); // Get the delete URL from the href attribute
+        
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirect to the delete URL
+                            window.location.href = deleteUrl;
+                        }
+                    });
+                });
+            });
+        });
+        
+        
+
+{% comment %} 
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          }); {% endcomment %}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock %}
