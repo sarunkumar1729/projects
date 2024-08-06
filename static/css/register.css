@@ -1,93 +1,110 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    max-width: 900px; /* Adjust max-width as needed */
-    margin: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
+/* Specific Reset for Registration Form */
+.register-form-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Container Styles */
 .register-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+/* Form Styles */
+.register-form-container form {
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 1 1 400px; /* Adjust flex basis as needed */
+    max-width: 400px;
+    width: 100%;
 }
 
-.image-container {
-    flex: 1 1 300px; /* Adjust flex basis as needed */
-    text-align: center; /* Center the image */
+/* Heading Styles */
+.register-form-container form h2 {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-h2 {
-    color: #ff0000; /* Red text */
-}
-
-.form-group {
+/* Form Group Styles */
+.register-form-container .form-group {
     margin-bottom: 15px;
 }
 
-label {
+.register-form-container .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: #000;
+    font-weight: bold;
 }
 
-input {
+.register-form-container .form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    border-radius: 4px;
 }
 
-button {
-    background-color: #ff0000; /* Red button */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%; /* Full width button */
-    box-sizing: border-box;
-    font-size: 16px; /* Increased font size */
-}
-
-button:hover {
-    background-color: #cc0000; /* Darker red on hover */
-}
-
-.error {
-    color: #ff0000; /* Red error text */
-    font-size: 14px;
+/* Error Message Styles */
+.register-form-container .error {
+    color: red;
+    font-size: 0.9em;
     margin-top: 5px;
+    display: none;
 }
 
-/* Responsive design for smaller screens */
+/* Button Styles */
+.register-form-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-form-container button[type="submit"]:hover {
+    background-color: #ff0000;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
+    .register-form-container {
+        padding: 10px;
     }
 
-    .register-form-container,
-    .image-container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
+    .register-form-container form {
+        padding: 15px;
     }
 
-    .image-container {
-        margin-top: 20px;
+    .register-form-container button[type="submit"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-form-container form h2 {
+        font-size: 1.5em;
+    }
+
+    .register-form-container .form-group label {
+        font-size: 0.9em;
+    }
+
+    .register-form-container .form-group input {
+        padding: 8px;
+    }
+
+    .register-form-container button[type="submit"] {
+        padding: 8px;
+        font-size: 14px;
     }
 }
