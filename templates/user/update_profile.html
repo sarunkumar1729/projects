@@ -1,7 +1,7 @@
 {% extends 'user/base.html' %}
 {% load static %}
 {% block main %}
-<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'css/register.css' %}"> {% endcomment %}
       <div class="register-form-container">
             <form method="post" enctype="multipart/form-data" action="{% url 'update-profile' %}">
                 {% csrf_token %}
@@ -92,6 +92,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top:20px;
         }
         
         .form-group {
