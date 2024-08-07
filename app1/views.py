@@ -195,6 +195,7 @@ def contact(request):
             context = None
       return render(request,'user/contact.html',context)
 
+@login_required
 def job_listing(request):
       jobs = Jobs.objects.all()
       context = {'jobs':jobs}  
