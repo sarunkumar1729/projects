@@ -186,6 +186,9 @@ def signup(request):
 def about(request):
       return render(request,'user/about.html')
 
+def services(request):
+      return render(request,'user/services.html')
+
 def contact(request):
       if request.user.is_authenticated:
             profile = Profile.objects.get(user=request.user)

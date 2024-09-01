@@ -1,476 +1,609 @@
-{% extends 'user/base.html' %}
-{% load static %}
-
-{% block main %}
+{% extends 'user/base.html' %} {% load static %} {% block main %}
 <main>
-    <!-- slider Area Start-->
-    <div class="slider-area ">
-        <!-- Mobile Menu -->
-        <div class="slider-active">
-            <div class="single-slider slider-height d-flex align-items-center" data-background="{% static 'assets/img/hero/h1_hero.jpg' %}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-9 col-md-10">
-                            <div class="hero__caption">
-                                <h1>Find the most exciting startup jobs</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Search Box -->
-                    <div class="row">
-                        <div class="col-xl-8">
-                            <!-- form -->
-                            <form action="{% url 'search_job' %}" class="search-box">
-                                <div class="input-form">
-                                    <input type="text" name='title' placeholder="Job Tittle or keyword">
-                                </div>
-                                <div class="select-form">
-                                    <div class="select-itms">
-                                        <select name="location" id="select1">
-                                            <option value="calicut">Calicut</option>
-                                            <option value="kochi">Kochi</option>
-                                            <option value="chennai">Chennai</option>
-                                            <option value="banglore">Banglore</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button class="search-form" style="background-color:#fb246a;color:white;border:none">click</button>
-                            </form>	
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- slider Area End-->
-    <!-- Our Services Start -->
-    <div class="our-services section-pad-t30">
+  <!-- slider Area Start-->
+  <div class="slider-area">
+    <!-- Mobile Menu -->
+    <div class="slider-active">
+      <div
+        class="single-slider slider-height d-flex align-items-center"
+        data-background="{% static 'assets/img/hero/h1_hero.jpg' %}"
+      >
         <div class="container">
-            <!-- Section Tittle -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-tittle text-center">
-                        <span>FEATURED JOBS</span>
-                        <h2>Browse Top Categories </h2>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-xl-6 col-lg-9 col-md-10">
+              <div class="hero__caption">
+                <h1>Find the most exciting startup jobs</h1>
+              </div>
             </div>
-            <div class="row d-flex justify-contnet-center">
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-tour"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Design & Creative</a></h5>
-                            <span>(653)</span>
-                        </div>
-                    </div>
+          </div>
+          <!-- Search Box -->
+          <div class="row">
+            <div class="col-xl-8">
+              <!-- form -->
+              <form action="{% url 'search_job' %}" class="search-box">
+                <div class="input-form">
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="Job Tittle or keyword"
+                  />
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-cms"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Design & Development</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
+                <div class="select-form">
+                  <div class="select-itms">
+                    <select name="location" id="select1">
+                      <option value="calicut">Calicut</option>
+                      <option value="kochi">Kochi</option>
+                      <option value="chennai">Chennai</option>
+                      <option value="banglore">Banglore</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-report"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Sales & Marketing</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-app"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Mobile Application</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-helmet"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Construction</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-high-tech"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Information Technology</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-real-estate"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Real Estate</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-content"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="{% url 'job-listing' %}">Content Writer</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
+                <button
+                  class="search-form"
+                  style="background-color: #fb246a; color: white; border: none"
+                >
+                  click
+                </button>
+              </form>
             </div>
-            <!-- More Btn -->
-            <!-- Section Button -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="browse-btn2 text-center mt-50">
-                        <a href="{% url 'job-listing' %}" class="border-btn2">Browse All Sectors</a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Our Services End -->
-    <!-- Online CV Area Start -->
-     <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="{% static 'assets/img/gallery/cv_bg.jpg' %}">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <div class="cv-caption text-center">
-                        <p class="pera1">FEATURED JOBS</p>
-                        <p class="pera2"> Make a Difference with Your Online Resume!</p>
-                        <a href="#" class="border-btn2 border-btn4">Upload your cv</a>
-                    </div>
-                </div>
-            </div>
+  </div>
+  <!-- slider Area End-->
+  <!-- Our Services Start -->
+  <div class="our-services section-pad-t30">
+    <div class="container">
+      <!-- Section Tittle -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-tittle text-center">
+            <span>FEATURED JOBS</span>
+            <h2>Browse Top Categories</h2>
+          </div>
         </div>
-    </div>
-    <!-- Online CV Area End-->
-    <!-- Featured_job_start -->
-    <section class="featured-job-area feature-padding">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-tittle text-center">
-                        <span>Recent Job</span>
-                        <h2>Featured Jobs</h2>
-                    </div>
-                </div>
+      </div>
+      <div class="row d-flex justify-contnet-center">
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-tour"></span>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="{% url 'job-listing' %}"><img src="{% static 'assets/img/icon/job-list1.png' %}" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="items-link f-right">
-                            <a href="{% url 'job-listing' %}">CLICK</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
-                    <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="{% url 'job-listing' %}"><img src="{% static 'assets/img/icon/job-list2.png' %}" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="items-link f-right">
-                            <a href="job_details.html">Full Time</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
-                     <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="{% url 'job-listing' %}"><img src="{% static 'assets/img/icon/job-list3.png' %}" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="items-link f-right">
-                            <a href="{% url 'job-listing' %}">Full Time</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
-                     <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="{% url 'job-listing' %}"><img src="{% static 'assets/img/icon/job-list4.png' %}" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
-                                <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="items-link f-right">
-                            <a href="{% url 'job-listing' %}">Full Time</a>
-                            <span>7 hours ago</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="services-cap">
+              <h5><a href="{% url 'job-listing' %}">Design & Creative</a></h5>
+              <span>(653)</span>
             </div>
+          </div>
         </div>
-    </section>
-    <!-- Featured_job_end -->
-    <!-- How  Apply Process Start-->
-    <div class="apply-process-area apply-bg pt-150 pb-150" data-background="{% static 'assets/img/gallery/how-applybg.png' %}">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-tittle white-text text-center">
-                        <span>Apply process</span>
-                        <h2> How it works</h2>
-                    </div>
-                </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-cms"></span>
             </div>
-            <!-- Apply Process Caption -->
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-process text-center mb-30">
-                        <div class="process-ion">
-                            <span class="flaticon-search"></span>
-                        </div>
-                        <div class="process-cap">
-                           <h5>1. Search a job</h5>
-                           <p>Easily find thousands of job opportunities that match your skills and preferences. Start your job search today.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-process text-center mb-30">
-                        <div class="process-ion">
-                            <span class="flaticon-curriculum-vitae"></span>
-                        </div>
-                        <div class="process-cap">
-                           <h5>2. Apply for job</h5>
-                           <p>Quickly apply with your resume and profile. Track your applications and get updates from employers in real-time.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-process text-center mb-30">
-                        <div class="process-ion">
-                            <span class="flaticon-tour"></span>
-                        </div>
-                        <div class="process-cap">
-                           <h5>3. Get your job</h5>
-                           <p>Secure your dream job with our platform's support. Enjoy a smooth transition into your new role.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="services-cap">
+              <h5>
+                <a href="{% url 'job-listing' %}">Design & Development</a>
+              </h5>
+              <span>(658)</span>
             </div>
-         </div>
-    </div>
-    <!-- How  Apply Process End-->
-    <!-- Testimonial Start -->
-    <div class="testimonial-area testimonial-padding">
-        <div class="container">
-            <!-- Testimonial contents -->
-            <div class="row d-flex justify-content-center">
-                <div class="col-xl-8 col-lg-8 col-md-10">
-                    <div class="h1-testimonial-active dot-style">
-                        <!-- Single Testimonial -->
-                        <div class="single-testimonial text-center">
-                            <!-- Testimonial Content -->
-                            <div class="testimonial-caption ">
-                                <!-- founder -->
-                                <div class="testimonial-founder  ">
-                                    <div class="founder-img mb-30">
-                                        <img src="{% static 'assets/img/testmonial/testimonial-founder.png' %}" alt="">
-                                        <span>Margaret Lawson</span>
-                                        <p>Creative Director</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-top-cap">
-                                    <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Testimonial -->
-                        <div class="single-testimonial text-center">
-                            <!-- Testimonial Content -->
-                            <div class="testimonial-caption ">
-                                <!-- founder -->
-                                <div class="testimonial-founder  ">
-                                    <div class="founder-img mb-30">
-                                        <img src="{% static '%assets/img/testmonial/testimonial-founder.png' %}" alt="">
-                                        <span>Margaret Lawson</span>
-                                        <p>Creative Director</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-top-cap">
-                                    <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Testimonial -->
-                        <div class="single-testimonial text-center">
-                            <!-- Testimonial Content -->
-                            <div class="testimonial-caption ">
-                                <!-- founder -->
-                                <div class="testimonial-founder  ">
-                                    <div class="founder-img mb-30">
-                                        <img src="{% static 'assets/img/testmonial/testimonial-founder.png' %}" alt="">
-                                        <span>Margaret Lawson</span>
-                                        <p>Creative Director</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-top-cap">
-                                    <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-    <!-- Testimonial End -->
-     <!-- Support Company Start-->
-     <div class="support-company-area support-padding fix">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="right-caption">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle2">
-                            <span>What we are doing</span>
-                            <h2>Talented people are getting Jobs</h2>
-                        </div>
-                        <div class="support-caption">
-                            <p class="pera-top">Parker Job Agency is a leading employment service committed to connecting talented job seekers with reputable employers. With a focus on personalized service and comprehensive support, the agency helps candidates find suitable job opportunities that match their skills and career goals. Through tailored career advice, resume assistance, and interview preparation, Parker Job Agency enhances the employability of its clients, making it a trusted partner for professional growth.</p>
-                            <p>Parker Job Agency excels at connecting job seekers with reputable employers, offering personalized services and comprehensive support. Their experienced recruiters specialize in various industries, ensuring candidates find roles that match their skills and career goals. With tailored career advice, resume assistance, and interview preparation, Parker Job Agency enhances clients' employability, making it a trusted partner for professional growth.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="support-location-img">
-                        <img src="{% static 'assets/img/service/support-img.jpg' %}" alt="">
-                        <div class="support-img-cap text-center">
-                            <p>Since</p>
-                            <span>2010</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-report"></span>
             </div>
+            <div class="services-cap">
+              <h5><a href="{% url 'job-listing' %}">Sales & Marketing</a></h5>
+              <span>(658)</span>
+            </div>
+          </div>
         </div>
-    </div>
-    <!-- Support Company End-->
-    <!-- Blog Area Start -->
-    <div class="home-blog-area blog-h-padding">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-tittle text-center">
-                        <span>Our latest blog</span>
-                        <h2>Our recent jobs</h2>
-                    </div>
-                </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-app"></span>
             </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="home-blog-single mb-30">
-                        <div class="blog-img-cap">
-                            <div class="blog-img">
-                                <img src="{% static 'assets/img/blog/home-blog1.jpg' %}" alt="">
-                                <!-- Blog date -->
-                                <div class="blog-date text-center">
-                                    <span>24</span>
-                                    <p>July</p>
-                                </div>
-                            </div>
-                            <div class="blog-cap">
-                                <p>|   Placement</p>
-                                <h3>Software engineer - Wipro</h3>
-                                {% comment %} <a href="#" class="more-btn">Read more »</a> {% endcomment %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="home-blog-single mb-30">
-                        <div class="blog-img-cap">
-                            <div class="blog-img">
-                                <img src="{% static 'assets/img/blog/home-blog2.jpg' %}" alt="">
-                                <!-- Blog date -->
-                                <div class="blog-date text-center">
-                                    <span>14</span>
-                                    <p>July</p>
-                                </div>
-                            </div>
-                            <div class="blog-cap">
-                                <p>|   Placement</p>
-                                <h3>Mechanical engineer - Tata</h3>
-                                {% comment %} <a href="#" class="more-btn">Read more »</a> {% endcomment %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="services-cap">
+              <h5><a href="{% url 'job-listing' %}">Mobile Application</a></h5>
+              <span>(658)</span>
             </div>
+          </div>
         </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-helmet"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a href="{% url 'job-listing' %}">Construction</a></h5>
+              <span>(658)</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-high-tech"></span>
+            </div>
+            <div class="services-cap">
+              <h5>
+                <a href="{% url 'job-listing' %}">Information Technology</a>
+              </h5>
+              <span>(658)</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-real-estate"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a href="{% url 'job-listing' %}">Real Estate</a></h5>
+              <span>(658)</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <div class="single-services text-center mb-30">
+            <div class="services-ion">
+              <span class="flaticon-content"></span>
+            </div>
+            <div class="services-cap">
+              <h5><a href="{% url 'job-listing' %}">Content Writer</a></h5>
+              <span>(658)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- More Btn -->
+      <!-- Section Button -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="browse-btn2 text-center mt-50">
+            <a href="{% url 'job-listing' %}" class="border-btn2"
+              >Browse All Sectors</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Blog Area End -->
+  </div>
+  <!-- Our Services End -->
+  <!-- Online CV Area Start -->
+  <div
+    class="online-cv cv-bg section-overly pt-90 pb-120"
+    data-background="{% static 'assets/img/gallery/cv_bg.jpg' %}"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-10">
+          <div class="cv-caption text-center">
+            <p class="pera1">FEATURED JOBS</p>
+            <p class="pera2">Make a Difference with Your Online Resume!</p>
+            <a href="#" class="border-btn2 border-btn4">Upload your cv</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Online CV Area End-->
+  <!-- Featured_job_start -->
+  <section class="featured-job-area feature-padding">
+    <div class="container">
+      <!-- Section Tittle -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-tittle text-center">
+            <span>Recent Job</span>
+            <h2>Featured Jobs</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-xl-10">
+          <!-- single-job-content -->
+          <div class="single-job-items mb-30">
+            <div class="job-items">
+              <div class="company-img">
+                <a href="{% url 'job-listing' %}"
+                  ><img
+                    src="{% static 'assets/img/icon/job-list1.png' %}"
+                    alt=""
+                /></a>
+              </div>
+              <div class="job-tittle">
+                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
+                <ul>
+                  <li>Creative Agency</li>
+                  <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                  <li>$3500 - $4000</li>
+                </ul>
+              </div>
+            </div>
+            <div class="items-link f-right">
+              <a href="{% url 'job-listing' %}">CLICK</a>
+              <span>7 hours ago</span>
+            </div>
+          </div>
+          <!-- single-job-content -->
+          <div class="single-job-items mb-30">
+            <div class="job-items">
+              <div class="company-img">
+                <a href="{% url 'job-listing' %}"
+                  ><img
+                    src="{% static 'assets/img/icon/job-list2.png' %}"
+                    alt=""
+                /></a>
+              </div>
+              <div class="job-tittle">
+                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
+                <ul>
+                  <li>Creative Agency</li>
+                  <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                  <li>$3500 - $4000</li>
+                </ul>
+              </div>
+            </div>
+            <div class="items-link f-right">
+              <a href="job_details.html">Full Time</a>
+              <span>7 hours ago</span>
+            </div>
+          </div>
+          <!-- single-job-content -->
+          <div class="single-job-items mb-30">
+            <div class="job-items">
+              <div class="company-img">
+                <a href="{% url 'job-listing' %}"
+                  ><img
+                    src="{% static 'assets/img/icon/job-list3.png' %}"
+                    alt=""
+                /></a>
+              </div>
+              <div class="job-tittle">
+                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
+                <ul>
+                  <li>Creative Agency</li>
+                  <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                  <li>$3500 - $4000</li>
+                </ul>
+              </div>
+            </div>
+            <div class="items-link f-right">
+              <a href="{% url 'job-listing' %}">Full Time</a>
+              <span>7 hours ago</span>
+            </div>
+          </div>
+          <!-- single-job-content -->
+          <div class="single-job-items mb-30">
+            <div class="job-items">
+              <div class="company-img">
+                <a href="{% url 'job-listing' %}"
+                  ><img
+                    src="{% static 'assets/img/icon/job-list4.png' %}"
+                    alt=""
+                /></a>
+              </div>
+              <div class="job-tittle">
+                <a href="{% url 'job-listing' %}"><h4>Digital Marketer</h4></a>
+                <ul>
+                  <li>Creative Agency</li>
+                  <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                  <li>$3500 - $4000</li>
+                </ul>
+              </div>
+            </div>
+            <div class="items-link f-right">
+              <a href="{% url 'job-listing' %}">Full Time</a>
+              <span>7 hours ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Featured_job_end -->
+  <!-- How  Apply Process Start-->
+  <div
+    class="apply-process-area apply-bg pt-150 pb-150"
+    data-background="{% static 'assets/img/gallery/how-applybg.png' %}"
+  >
+    <div class="container">
+      <!-- Section Tittle -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-tittle white-text text-center">
+            <span>Apply process</span>
+            <h2>How it works</h2>
+          </div>
+        </div>
+      </div>
+      <!-- Apply Process Caption -->
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-process text-center mb-30">
+            <div class="process-ion">
+              <span class="flaticon-search"></span>
+            </div>
+            <div class="process-cap">
+              <h5>1. Search a job</h5>
+              <p>
+                Easily find thousands of job opportunities that match your
+                skills and preferences. Start your job search today.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-process text-center mb-30">
+            <div class="process-ion">
+              <span class="flaticon-curriculum-vitae"></span>
+            </div>
+            <div class="process-cap">
+              <h5>2. Apply for job</h5>
+              <p>
+                Quickly apply with your resume and profile. Track your
+                applications and get updates from employers in real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-process text-center mb-30">
+            <div class="process-ion">
+              <span class="flaticon-tour"></span>
+            </div>
+            <div class="process-cap">
+              <h5>3. Get your job</h5>
+              <p>
+                Secure your dream job with our platform's support. Enjoy a
+                smooth transition into your new role.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- How  Apply Process End-->
 
+{% comment %} recruitment procedure starts  {% endcomment %}
+<div class='p-5'>
+<h3><b>RECRUITMENT PROCEDURE</b></h3>
+<p>We are recognised for our effective overseas placement consultancy service. Our staff has sound knowledge of all aspects
+of overseas placement and they work hard to provide our clients with the assistance for the most suitable overseas jobs. 
+<p>
+<h4>1. Agency Agreement</h4>
+<p>We work in close co-ordination with our clients for executing an agency agreement starting the terms and conditions, which will 
+  then result in the manpower trade going to executed.
+<p>
+<h4>2. Interview By Client's<h4>
+<p>We conduct formal interviews of the applicants at out office premise or at any other venue preferred by the employer or his Delegates.
+the selection process is done with the help of experts under the direct supervision of our team proffessionals. We provide best secratarial assistance 
+to the interviewers with skape facilities under modern technology.<p>
+<h4>3. Medical Examination</h4>
+<p>Candidates are sent for medical examination to the medical centers authorized by the respective embassies of the country for the 
+  employment</p>
+<h4>4. Mobilization-Travel Processing and Deployment<h4> 
+<p>Candidates will be kept informed about their visa status. Travel formalities will be completed as soon as we get the reciept/
+  endorsement of the visa and accordingly the clients will be informed about the departure of the candidate. We strictly
+  adhere to out clients instructions at every stage of the recruitment and deploy the candidates within the stiplulated time. 
+<p>
+<h4>5. Orientation of candidates before employment</h4>
+<p>selected candidates have thorough orientation about their employers,working conditions,good manners and etiquette, details of cultural naunces,
+  weather conditions. and many such things. This will help them to adapt their new working conditions quickly, which will result
+  in higher productivity<p>
+  </div>
+
+{% comment %} recruitment procedure ends  {% endcomment %}
+
+  <!-- Testimonial Start -->
+  <div class="testimonial-area testimonial-padding">
+    <div class="container">
+      <!-- Testimonial contents -->
+      <div class="row d-flex justify-content-center">
+        <div class="col-xl-8 col-lg-8 col-md-10">
+          <div class="h1-testimonial-active dot-style">
+            <!-- Single Testimonial -->
+            <div class="single-testimonial text-center">
+              <!-- Testimonial Content -->
+              <div class="testimonial-caption">
+                <!-- founder -->
+                <div class="testimonial-founder">
+                  <div class="founder-img mb-30">
+                    <img
+                      src="{% static 'assets/img/testmonial/testimonial-founder.png' %}"
+                      alt=""
+                    />
+                    <span>Margaret Lawson</span>
+                    <p>Creative Director</p>
+                  </div>
+                </div>
+                <div class="testimonial-top-cap">
+                  <p>
+                    “I am at an age where I just want to be fit and healthy our
+                    bodies are our responsibility! So start caring for your body
+                    and it will care for you. Eat clean it will care for you and
+                    workout hard.”
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Single Testimonial -->
+            <div class="single-testimonial text-center">
+              <!-- Testimonial Content -->
+              <div class="testimonial-caption">
+                <!-- founder -->
+                <div class="testimonial-founder">
+                  <div class="founder-img mb-30">
+                    <img
+                      src="{% static '%assets/img/testmonial/testimonial-founder.png' %}"
+                      alt=""
+                    />
+                    <span>Margaret Lawson</span>
+                    <p>Creative Director</p>
+                  </div>
+                </div>
+                <div class="testimonial-top-cap">
+                  <p>
+                    “I am at an age where I just want to be fit and healthy our
+                    bodies are our responsibility! So start caring for your body
+                    and it will care for you. Eat clean it will care for you and
+                    workout hard.”
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Single Testimonial -->
+            <div class="single-testimonial text-center">
+              <!-- Testimonial Content -->
+              <div class="testimonial-caption">
+                <!-- founder -->
+                <div class="testimonial-founder">
+                  <div class="founder-img mb-30">
+                    <img
+                      src="{% static 'assets/img/testmonial/testimonial-founder.png' %}"
+                      alt=""
+                    />
+                    <span>Margaret Lawson</span>
+                    <p>Creative Director</p>
+                  </div>
+                </div>
+                <div class="testimonial-top-cap">
+                  <p>
+                    “I am at an age where I just want to be fit and healthy our
+                    bodies are our responsibility! So start caring for your body
+                    and it will care for you. Eat clean it will care for you and
+                    workout hard.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Testimonial End -->
+  <!-- Support Company Start-->
+  <div class="support-company-area support-padding fix">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xl-6 col-lg-6">
+          <div class="right-caption">
+            <!-- Section Tittle -->
+            <div class="section-tittle section-tittle2">
+              <span>What we are doing</span>
+            </div>
+            <div class="support-caption">
+              <span class="pera-top">
+                <h2>PARKAR CONSULTANTS</h2>
+                <p>
+                is established in millennium year 2000 is one of the leading recruiting, travel
+                & tourism industry with its headquarter in Mumbai having its branches in New Delhi. Being vision of
+                
+                PARKAR AGENCY established in 1912, we have name & fame in the market.
+                
+                As William James rightly quoted "It is our attitude at the beginning of the difficult tack, which is more than
+                anything else, will affect its successful outcome." It is with this belief that Director's who has been
+                instrumental in being the driving force behind the success and reputation' that ithas earned over the years.
+                
+                Being in such a dynamic industry, it is imperation to be updated about the happenings around & our exclusive
+                
+                memberships with IATA serves that every purpose.
+                </p>
+              </span>
+              <h2>SERVICES</h2>
+              <p>
+                We are one of the leading Recruiting and Manpower Supplying Company to Overseas Countries with years
+                
+                of commendable track record high quality manpower in recruiting & also an IATA Accredited Agent with
+                
+                International and Domestic Air Ticketing, Haj & Umrah Packages.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6">
+          <div class="support-location-img">
+            <img
+              src="{% static 'assets/img/service/support-img.jpg' %}"
+              alt=""
+            />
+            <div class="support-img-cap text-center">
+              <p>Since</p>
+              <span>2000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Support Company End-->
+  <!-- Blog Area Start -->
+  <div class="home-blog-area blog-h-padding">
+    <div class="container">
+      <!-- Section Tittle -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-tittle text-center">
+            <span>Our latest blog</span>
+            <h2>Our recent jobs</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6">
+          <div class="home-blog-single mb-30">
+            <div class="blog-img-cap">
+              <div class="blog-img">
+                <img
+                  src="{% static 'assets/img/blog/home-blog1.jpg' %}"
+                  alt=""
+                />
+                <!-- Blog date -->
+                <div class="blog-date text-center">
+                  <span>24</span>
+                  <p>July</p>
+                </div>
+              </div>
+              <div class="blog-cap">
+                <p>| Placement</p>
+                <h3>Software engineer - Wipro</h3>
+                {% comment %} <a href="#" class="more-btn">Read more »</a> {% endcomment %}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6">
+          <div class="home-blog-single mb-30">
+            <div class="blog-img-cap">
+              <div class="blog-img">
+                <img
+                  src="{% static 'assets/img/blog/home-blog2.jpg' %}"
+                  alt=""
+                />
+                <!-- Blog date -->
+                <div class="blog-date text-center">
+                  <span>14</span>
+                  <p>July</p>
+                </div>
+              </div>
+              <div class="blog-cap">
+                <p>| Placement</p>
+                <h3>Mechanical engineer - Tata</h3>
+                {% comment %} <a href="#" class="more-btn">Read more »</a> {% endcomment %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Blog Area End -->
 </main>
 {% endblock %}

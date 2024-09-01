@@ -7,6 +7,7 @@ urlpatterns=[
       path('signup',views.signup,name='signup'),
       path('about',views.about,name='about'),
       path('contact',views.contact,name='contact'),
+      path('services',views.services,name='services'),
       path('user-profile',views.user_profile,name='user-profile'),
       path('edit-profile',views.edit_profile,name='edit-profile'),
       path('update-profile',views.update_profile,name='update-profile'),
@@ -35,7 +36,8 @@ urlpatterns=[
       path('send_message',views.send_message,name="send_message"),
       path('ajax/check_username',views.check_username,name='check_username'),
       
-      path('search_job',views.search_job,name='search_job')
+      path('search_job',views.search_job,name='search_job'),
+      
 ]
 
 # change the urls - include admin in each url.
