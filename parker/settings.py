@@ -25,10 +25,10 @@ SECRET_KEY = 'django-insecure-0*j&zma_ib7o+5e9u665n3+&#e&2k2sqj#se7%v_5-p0kg0d--
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-DEBUG = True
+# DEBUG = True
 
-# ALLOWED_HOSTS = ['www.parkarjobs.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.parkarjobs.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -77,26 +77,26 @@ WSGI_APPLICATION = 'parker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'sarunkmr2000$default',
-#         'USER': 'sarunkmr2000',
-#         'PASSWORD': '17291279sar@KMR',
-#         'HOST': 'sarunkmr2000.mysql.pythonanywhere-services.com',  # Typically 'localhost' or '127.0.0.1' for local development
-#         'PORT': '3306',  # Typically '3306' for MySQL
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sarunkmr2000$default',
+        'USER': 'sarunkmr2000',
+        'PASSWORD': '17291279sar@KMR',
+        'HOST': 'sarunkmr2000.mysql.pythonanywhere-services.com',  # Typically 'localhost' or '127.0.0.1' for local development
+        'PORT': '3306',  # Typically '3306' for MySQL
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
 
 
 
