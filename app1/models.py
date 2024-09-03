@@ -52,6 +52,8 @@ class Messages(models.Model):
       email = models.CharField(max_length=255,null=True)
       subject = models.CharField(max_length=255,null=True)
       send_date = models.DateField(auto_now=True)
+      phone=models.CharField(max_length=20,null=True)
+      
 
 # from django.db import models
 # from django.contrib.auth.models import User
